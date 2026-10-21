@@ -108,7 +108,7 @@ let cmd =
       [%map_open.Command
         let targets = anon (sequence ("TARGETS" %: Filename_unix.arg_type))
         and format =
-          flag_optional_with_default_doc "format"
+          flag_optional_with_default_doc_sexp "format"
             (Arg_type.of_alist_exn [ ("dot", `Dot); ("svg", `Svg) ])
             [%sexp_of: [ `Dot | `Svg ]] ~default:`Svg ~doc:""
         and write = flag "-write" (optional Filename_unix.arg_type) ~doc:"" in
